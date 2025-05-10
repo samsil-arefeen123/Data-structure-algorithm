@@ -23,10 +23,27 @@ class linkedlist:
             count+=1
             current=current.next_node
         return count
-    
-Noding=Node("19")
-Noding2=Node("2")
-Noding.next_node=Noding2
-print(Noding.data)
-print(Noding)
-print(Noding.next_node.data)
+    def addbefore(self,data):
+        """adding number before"""
+        new_node=Node(data)
+        new_node.next_node=self.head
+        self.head=new_node
+    def popbefore(self):
+        """removing number from lastest one"""
+        current=self.head
+        self.head=current.next_node
+        return current.data
+
+
+p=linkedlist()
+print(p.is_empty())
+p.addbefore(4)
+print(p.is_empty())
+p.addbefore(10)
+p.addbefore(15)
+print(p.size())
+print(p.popbefore())
+print(p.size())
+print(p.popbefore())
+print(p.popbefore())
+print(p.is_empty())
